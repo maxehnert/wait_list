@@ -1,3 +1,11 @@
-## Yo, I'm a Readme
+#Wait List
+## Unfinished Project, making a wait list.
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+How to use it:
+
+Clone my repo
+
+1. Run npm install
+2. Run bower install
+
+Libraries Used (jQuery, Underscore, SASS)
