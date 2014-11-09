@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>Wait List</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+<link href='http://www.google.com/fonts#UsePlace:use/Collection:Vollkorn:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/vendor.css">
 
     <link rel="stylesheet" href="styles/main.css">
@@ -36,6 +36,7 @@
       <span>Topic</span>
       <select name="select" id="problem_topic">
         <option value="Code">Code</option>
+        <option value="Code">GitHub</option>
         <option value="Personal">Personal</option>
         <option value="Other">Other</option>
       </select>
@@ -65,7 +66,7 @@
 <script type="text/template" id="listTemp">
 <ul class="accordion">
   <li id="<%= _id %>">
-    <a href="#/edit/<%= _id %>" class="js-accordion-trigger"> <%= counter %> Name: <%= name %>  <span>Topic: <%= topic %> <%= time %></span>
+    <a href="#/edit/<%= _id %>" class="js-accordion-trigger"> Name: <%= name %>  <span>Topic: <%= topic %></span><p>Created: <%= time %></p>
   <!--   <button id="delete">Delete</button> -->
     </a>
     <ul class="submenu">
@@ -87,6 +88,7 @@
              <span>Topic</span>
              <select name="select" id="update_topic">
               <option value="Code">Code</option>
+              <option value="Code">GitHub</option>
               <option value="Personal">Personal</option>
               <option value="Other">Other</option>
              </select>
@@ -117,7 +119,7 @@
             <div class="card-stats">
               <button>Update Your Problem</button>
 <!--   <a href="#/"><button class="backbtn">Go Back</button></a>-->
-              <button id="delete">Delete</button>
+              <button id="delete" title="Are you sure?">Delete</button>
             </div>
         </form>
       </li>
