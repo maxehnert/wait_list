@@ -5,9 +5,13 @@
 
 // Custom Styles
 body {
-  background: #fafafa;
+  background: HSLA(164, 29%, 87%, 1);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+button{
+  outline: none;
 }
 
 .hero-unit {
@@ -16,11 +20,12 @@ body {
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  background-color: HSLA(164, 29%, 87%, 1);
   border-radius: 6px;
   padding: 60px;
   position: relative;
   h1 {
+    text-align: center;
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
@@ -32,39 +37,50 @@ body {
   form {
     margin: 15px 0;
   }
+  .sorts{
+    text-align: center;
+
+    a{
+      color: black;
+      }
+  }
 }
 
 #delete {
   background-color: hsla(349,100%,43%,1);
 }
 
-#coffeeList {
-  @include clearfix;
-  padding: 25px 0;
-}
+ //#coffeeList {
+//  @include clearfix;
+//  padding: 25px 0;
+ //}
 
 .addBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  button{
+    background-color: HSLA(170, 71%, 61%, 1);
+    width: 100%;
+    &:hover{
+      background-color:HSLA(172, 100%, 41%, 1);
+    }
+  }
 }
 
 .card {
   $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-  $card-background: lighten($card-border-color, 10);
+  $card-border: none;
+  $card-background: HSLA(164, 29%, 87%, 1);
   $card-header-background: $card-background;
-  $card-hover-background: lighten($card-background, 5);
+  $card-hover-background: HSLA(164, 29%, 87%, 1);
   $card-image-background: #DBD199;
-  $card-image-hover-background: lighten($card-image-background, 5);
-  $card-stats-color: lighten($base-accent-color, 10);
+  $card-image-hover-background: HSLA(164, 29%, 87%, 1);
+  $card-stats-color: HSLA(164, 29%, 87%, 1);
 
   @include transition (all 0.2s ease-in-out);
-  background-color: $card-background;
+  background-color: HSLA(164, 29%, 87%, 1);
   border-radius: $base-border-radius;
   border: $card-border;
   margin-bottom: $base-spacing;
-  cursor: pointer;
+  //cursor: pointer;
   box-shadow: 0 2px 4px darken($base-background-color, 10);
   position: relative;
 
@@ -79,7 +95,7 @@ body {
 
     .ribbon {
       font-size: .8em;
-      font-weight: 800;
+      font-weight: 200;
       text-align: center;
       @include transform(rotate(45deg));
       position: relative;
@@ -95,11 +111,18 @@ body {
 
   .card-header {
     @include transition (all 0.2s ease-in-out);
-    background-color: $card-header-background;
+    background-color: HSLA(164, 29%, 87%, 1);
     border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
-    font-weight: bold;
+    font-weight: 200;
     padding: $base-spacing/3 $gutter/2;
+
+    #update_name{
+      outline: none;
+    }
+    textarea{
+      outline: none;
+    }
   }
 
   .card-copy {
@@ -118,17 +141,33 @@ body {
     padding: $base-spacing/2 $gutter/2;
     overflow: auto;
     clear: both;
+
+    button{
+      background-color: HSLA(170, 71%, 61%, 1);
+
+      &:hover{
+        background-color: HSLA(172, 100%, 41%, 1);
+      }
+    }
+    #delete{
+      float:right;
+      background-color: HSLA(355, 60%, 50%, 1);
+
+      &:hover{
+        background-color: HSLA(348, 100%, 37%, 1);
+      }
+    }
   }
 
   &:hover {
-    background-color: $card-hover-background;
+    background-color: HSLA(164, 29%, 87%, 1);
 
     .card-image img {
       background: $card-image-hover-background;
     }
 
     .card-header {
-      background-color: $card-hover-background;
+      background-color: HSLA(164, 29%, 87%, 1);
     }
   }
 
@@ -141,15 +180,15 @@ body {
   }
 }
 
-.button-group {
+/* .button-group {
   padding: 15px;
-  $button-group-background: $base-background-color;
-  $button-group-color: lighten($base-font-color, 30);
-  $button-group-border: 1px solid silver;
-  $button-group-inner-border: 1px solid lighten(silver, 18);
-  $button-group-background-checked: $base-accent-color;
-  $button-group-color-checked: white;
-  $button-group-border-checked: darken($button-group-background-checked, 15);
+  \$button-group-background: \$base-background-color;
+  \$button-group-color: lighten(\$base-font-color, 30);
+  \$button-group-border: 1px solid silver;
+  \$button-group-inner-border: 1px solid lighten(silver, 18);
+  \$button-group-background-checked: \$base-accent-color;
+  \$button-group-color-checked: white;
+  \$button-group-border-checked: darken(\$button-group-background-checked, 15);
 
   input {
     display: none;
@@ -161,28 +200,114 @@ body {
     margin-right: 5px;
 
     .button-group-item {
-      background: $button-group-background;
-      border-radius: $base-border-radius;
-      border: $button-group-border;
-      color: $button-group-color;
+      background: \$button-group-background;
+      border-radius: \$base-border-radius;
+      border: \$button-group-border;
+      color: \$button-group-color;
       cursor: pointer;
       display: inline-block;
-      font-size: $base-font-size;
+      font-size: \$base-font-size;
       font-weight: normal;
       line-height: 1;
       padding: .75em 1em;
       width: 100%;
 
       &:hover {
-        background-color: darken($button-group-background, 3);
+        background-color: darken(\$button-group-background, 3);
       }
     }
 
     input:checked + .button-group-item {
-      background: $button-group-background-checked;
-      border: 1px solid $button-group-border-checked;
-      box-shadow: inset 0 1px 2px darken($button-group-background-checked, 10);
-      color: $button-group-color-checked;
+      background: \$button-group-background-checked;
+      border: 1px solid \$button-group-border-checked;
+      box-shadow: inset 0 1px 2px darken(\$button-group-background-checked, 10);
+      color: \$button-group-color-checked;
+    }
+  }
+} */
+
+
+//accordian template
+.accordion {
+  $accordion-menu-border-color: $base-border-color;
+  $accordion-menu-color: $base-font-color;
+  $accordion-menu-border: 1px solid $accordion-menu-border-color;
+  $accordion-menu-background: lighten($accordion-menu-border-color, 10);
+  $accordion-menu-hover: lighten($accordion-menu-background, 2);
+  $accordion-menu-sub-background: darken($accordion-menu-background, 5);
+  $accordion-menu-sub-inset: darken($accordion-menu-sub-background, 6);
+  $accordion-menu-sub-hover: lighten($accordion-menu-sub-background, 2);
+  $accordion-menu-list-padding: $base-spacing/2 $gutter;
+
+  background-color: $accordion-menu-background;
+  border: $accordion-menu-border;
+  margin-bottom: $base-spacing;
+  border-radius: 10px;
+
+  li {
+    border-bottom: $accordion-menu-border;
+    border-radius: 10px;
+    > a {
+      color: HSLA(170, 71%, 61%, 1);
+      padding: $accordion-menu-list-padding;
+      display: block;
+
+      &:hover{
+        color:white;
+        }
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      background-color: HSLA(170, 71%, 61%, 1);
+    }
+  }
+
+  ul.submenu {
+    display: none;
+
+    li {
+      background-color:HSLA(0, 0%, 77%, 1);
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+
+      >a{
+          color: white;
+      }
+
+      &:first-child {
+        border-top: $accordion-menu-border;
+        box-shadow: inset 0 1px 1px $accordion-menu-sub-inset;
+      }
+
+      &:hover {
+        background-color: HSLA(170, 71%, 61%, 1);
+      }
+    }
+  }
+
+  .is-expanded {
+    display: block;
+    padding-bottom: 0;
+  }
+
+  span{
+    float: right;
+  }
+}
+
+//Add New Problem Window
+
+#addProblem{
+
+  button{
+    background-color: HSLA(170, 71%, 61%, 1);
+
+    &:hover{
+      background-color: HSLA(172, 100%, 41%, 1);
     }
   }
 }

@@ -15,7 +15,7 @@
     },
 
     home: function (sortby) {
-      new App.Views.ListProblem({ collection: App.problems, showTwitter: false, sort: sortby });
+      new App.Views.ListProblem({collection: App.problems, sort: sortby});
     },
 
     editProblem: function (problemID) {

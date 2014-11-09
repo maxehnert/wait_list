@@ -33,11 +33,16 @@
     updateInfo: function (e) {
       e.preventDefault();
 
+      if(
+        $('#update_name').val() === '' || $('#update_problem').val() === ''){
+        return false;
+      }
+
       // Update our Model Instance
       this.options.problem.set({
         name: $('#update_name').val(),
         topic: $('#update_topic').val(),
-        problem: $('#update_problems').val(),
+        problem: $('#update_problem').val(),
         rating: $('input[name="rating"]:checked').val()
       });
 

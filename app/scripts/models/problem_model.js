@@ -8,6 +8,8 @@
       name: '',
       topic: '',
       problem: '',
+      counter: '',
+      time: '',
       rating: ''
     },
 

@@ -19,10 +19,16 @@
     addProblem: function (e) {
       e.preventDefault();
 
+      if(
+        $('#problem_name').val() === '' || $('#problem_problem').val() === ''){
+        return false;
+      }
       var p = new App.Models.Problem({
         name: $('#problem_name').val(),
         topic: $('#problem_topic').val(),
-        problem: $('#problem_problem').val()
+        problem: $('#problem_problem').val(),
+        counter: $('.accordian').length,
+        time: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT").getTime()
       });
 
       App.problems.add(p).save(null, {
@@ -31,7 +37,8 @@
         }
       });
 
-    }
+    },
+
 
   });
 

@@ -8,6 +8,7 @@
       name: '',
       brand: '',
       comments: '',
+      count: '',
       rating: ''
     },
 

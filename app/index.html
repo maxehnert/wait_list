@@ -27,52 +27,79 @@
       <h1><a href="#/">Wait List</a></h1>
       <a href="#/add" class="addBtn"><button>Add</button></a>
 
-  <div class="sorts">
-    <!-- <a href="#/">Rating</a> &bull; -->
-    <a href="#/sort/name">Name</a> &bull;
-    <a href="#/sort/topic">Topic</a>
-  </div>
+      <div class="sorts">
+        <!-- <a href="#/">Rating</a> &bull; -->
+        <a href="#/sort/name">Name</a> &bull;
+        <a href="#/sort/topic">Topic</a> &bull;
+        <a href="#/sort/counter">Counter</a>
+
+      </div>
       <div id="problemList"></div>
     </div>
 
-    <script type="text/template" id="addTemp">
-        <form id="addProblem">
-        <input type="text" id="problem_name" placeholder="Enter Your Name" />
-        <select name="select" id="problem_topic">
-          <option value="Code">Code</option>
-          <option value="Personal" selected>Personal</option>
-          <option value="Other">Other</option>
-        </select>
-      <!--   <input type="text" id="problem_topic" placeholder="What kind of problem?" /> -->
-        <textarea type="text" id="problem_problem" placeholder="Enter Your Problem"></textarea>
+<!-- Create New Problem Script -->
+<script type="text/template" id="addTemp">
+    <form id="addProblem">
+      <input type="text" id="problem_name" placeholder="Enter Your Name" />
+      <span>Topic</span>
+      <select name="select" id="problem_topic">
+        <option value="Code">Code</option>
+        <option value="Personal">Personal</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea type="text" id="problem_problem" placeholder="Enter Your Problem"></textarea>
+      <button>Add Problem</button>
+<!--       <a href="#/"><button class="backbtn">Go Back</button></a>-->
+    </form>
 
-        <button>Add Problem</button>
-        </form>
-        <hr />
-    </script>
+</script>
 
-    <script type="text/template" id="listTemp">
-      <li class="card" id="<%= _id %>">
-        <a href="#/edit/<%= _id %>">
-          <div class="card-header">Name: <%= name %> Topic: <%= topic %></div>
-      <% if(problem !== '') { %>
-          <div class="card-copy"><p>Problem: <%= problem %></p></div>
-      <% } %>
-      <!-- <% if(rating !== '') { %>
-          <div class="card-stats"><%= rating %> Star Rating</div>
-      <% } %> -->
-        </a>
+  <!--   <script type="text/template" id="listTemp">
+    <li class="card" id="<%= _id %>">
+      <a href="#/edit/<%= _id %>">
+        <div class="card-header"> <%= counter %> Name: <%= name %> Topic: <%= topic %>
+        </div>
+    <% if(problem !== '') { %>
+        <div class="card-copy"><p>Problem: <%= problem %></p></div>
+    <% } %>
+    <% if(rating !== '') { %>
+        <div class="card-stats"><%= rating %> Star Rating</div>
+    <% } %>
+      </a>
+    </li>
+  </script> -->
+
+<!--accordian template -->
+<script type="text/template" id="listTemp">
+<ul class="accordion">
+  <li id="<%= _id %>">
+    <a href="#/edit/<%= _id %>" class="js-accordion-trigger"> <%= counter %> Name: <%= name %>  <span>Topic: <%= topic %> <%= time %></span>
+  <!--   <button id="delete">Delete</button> -->
+    </a>
+    <ul class="submenu">
+      <li>
+        <a href="#/edit/<%= _id %>">Problem: <%= problem %></a>
       </li>
-    </script>
+    </ul>
+  </li>
+</ul>
+</script>
+<!-- end accordian template -->
 
+<!-- Update Information Template-->
     <script type="text/template" id="informationTemp">
       <li class="card" id="<%= _id %>">
         <form id="updateInfo">
             <div class="card-header">
-              <input type="text" value="<%= name %>" id="update_name" />
-              <input type="text" value="<%= topic %>" id="update_topic" />
-              <textarea id="update_problem"><%= problem %></textarea>
-            </div>
+              <input type="text" value="<%= name %>" id="update_name" placeholder="Enter Your Name" />
+             <span>Topic</span>
+             <select name="select" id="update_topic">
+              <option value="Code">Code</option>
+              <option value="Personal">Personal</option>
+              <option value="Other">Other</option>
+             </select>
+            <textarea id="update_problem" placeholder="Enter Your Problem"><%= problem %></textarea>
+          </div>
         <!--   <div class="button-group">
           <label>
             <input type="radio" name="rating" value="1" <% if (rating == "1") { %>checked<% } %>>
@@ -97,6 +124,7 @@
         </div> -->
             <div class="card-stats">
               <button>Update Your Problem</button>
+<!--   <a href="#/"><button class="backbtn">Go Back</button></a>-->
               <button id="delete">Delete</button>
             </div>
         </form>
