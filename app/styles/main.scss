@@ -62,6 +62,7 @@ button{
 
 .addBtn {
   button{
+  //  background-image: radial-gradient(HSLA(170, 71%, 61%, 1) 30%, HSLA(164, 29%, 87%, 1));
     background-color: HSLA(170, 71%, 61%, 1);
     width: 100%;
     &:hover{
@@ -172,7 +173,7 @@ button{
         z-index: 20;
         white-space: nowrap;
         box-shadow: 0px 0px 4px #222;
-        background-color:HSLA(0, 0%, 77%, 1);
+        background-image: linear-gradient(HSLA(0, 0%, 77%, 1), HSLA(170, 71%, 61%, 1));
       }
     }
   }

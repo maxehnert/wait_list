@@ -10,7 +10,8 @@
       problem: '',
       counter: '',
       time: '',
-      rating: ''
+      rating: '',
+      created: ''
     },
 
     initialize: function () {

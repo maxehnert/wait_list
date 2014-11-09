@@ -12,7 +12,7 @@
     },
 
     render: function () {
-      this.$el.html($('#addTemp').html());
+      this.$el.html($('#addTemp').fadeIn('fast').html());
 
     },
 
@@ -28,7 +28,8 @@
         topic: $('#problem_topic').val(),
         problem: $('#problem_problem').val(),
         counter: $('.accordian').length,
-        time: moment().fromNow()
+        time: moment().fromNow(),
+        created: moment().format('MMMM Do YYYY, h:mm:ss a')
 
 
       });

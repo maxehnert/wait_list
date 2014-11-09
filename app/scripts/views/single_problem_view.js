@@ -7,8 +7,7 @@
 
     events: {
       'submit #updateInfo' : 'updateInfo',
-      'click #delete' : 'deleteInfo',
-      'mouseover #delete' : 'AreYouSure'
+      'click #delete' : 'deleteInfo'
     },
 
     template: _.template($('#informationTemp').html()),
@@ -64,10 +63,6 @@
       // Go home ET
       App.router.navigate('', {trigger: true});
 
-    },
-
-    AreYouSure: function(){
-      $('#delete').tooltip();
     }
 
   });
