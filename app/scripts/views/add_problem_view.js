@@ -28,7 +28,9 @@
         topic: $('#problem_topic').val(),
         problem: $('#problem_problem').val(),
         counter: $('.accordian').length,
-        time: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT").getTime()
+        time: moment().fromNow()
+
+
       });
 
       App.problems.add(p).save(null, {

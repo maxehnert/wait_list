@@ -29,6 +29,7 @@
     comparator: function (model) {
       return -parseInt(model.get('counter'));
     },
+    
     url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
   });
 
@@ -64,7 +65,9 @@
         topic: $('#problem_topic').val(),
         problem: $('#problem_problem').val(),
         counter: $('.accordian').length,
-        time: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT").getTime()
+        time: moment().fromNow()
+
+
       });
 
       App.problems.add(p).save(null, {
@@ -180,7 +183,8 @@
 
     events: {
       'submit #updateInfo' : 'updateInfo',
-      'click #delete' : 'deleteInfo'
+      'click #delete' : 'deleteInfo',
+      'mouseover #delete' : 'AreYouSure'
     },
 
     template: _.template($('#informationTemp').html()),
@@ -236,6 +240,10 @@
       // Go home ET
       App.router.navigate('', {trigger: true});
 
+    },
+
+    AreYouSure: function(){
+      $('#delete').tooltip();
     }
 
   });

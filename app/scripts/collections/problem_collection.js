@@ -5,6 +5,7 @@
     comparator: function (model) {
       return -parseInt(model.get('counter'));
     },
+    
     url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
   });
 

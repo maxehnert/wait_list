@@ -4,9 +4,11 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Custom Styles
+
+
 body {
   background: HSLA(164, 29%, 87%, 1);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -17,8 +19,9 @@ button{
 .hero-unit {
   margin: 50px auto 0 auto;
   width: 600px;
+  font: 'Vollkorn';
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 30px;
   background-color: HSLA(164, 29%, 87%, 1);
   border-radius: 6px;
@@ -29,6 +32,8 @@ button{
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+    font: 'Vollkorn';
+    font-weight: 700;
     a {
       text-decoration: none;
       color: black;
@@ -155,6 +160,19 @@ button{
 
       &:hover{
         background-color: HSLA(348, 100%, 37%, 1);
+      }
+      &[title]:hover:after{
+        content: attr(title);
+        font-size: 1em;
+        color: white;
+        padding: 4px 4px;
+        position: absolute;
+        right: 15px;
+        top: 100%;
+        z-index: 20;
+        white-space: nowrap;
+        box-shadow: 0px 0px 4px #222;
+        background-color:HSLA(0, 0%, 77%, 1);
       }
     }
   }
