@@ -19,11 +19,12 @@
     addProblem: function (e) {
       e.preventDefault();
 
+      //cannot submit new problem without filling out the form complete
       if(
         $('#problem_name').val() === '' || $('#problem_problem').val() === ''){
         return false;
       }
-      
+
       var p = new App.Models.Problem({
         name: $('#problem_name').val(),
         topic: $('#problem_topic').val(),

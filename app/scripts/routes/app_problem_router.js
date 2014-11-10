@@ -3,7 +3,6 @@
   App.Routers.AppRouter = Backbone.Router.extend({
 
     initialize: function () {
-      // Light the Fire
       Backbone.history.start();
     },
 
@@ -19,13 +18,11 @@
     },
 
     editProblem: function (problemID) {
-
       var p = App.problems.get(problemID);
       new App.Views.SingleProblem({ problem: p });
     },
 
     addProblem: function () {
-
       new App.Views.AddProblem();
     }
   });

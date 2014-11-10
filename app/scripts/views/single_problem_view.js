@@ -10,6 +10,7 @@
       'click #delete' : 'deleteInfo'
     },
 
+    //create a template from html script
     template: _.template($('#informationTemp').html()),
 
     initialize: function (options) {
@@ -33,6 +34,7 @@
     updateInfo: function (e) {
       e.preventDefault();
 
+      //cannot update form unless complete
       if(
         $('#update_name').val() === '' || $('#update_problem').val() === ''){
         return false;
@@ -49,10 +51,10 @@
       // Save Instance
       this.options.problem.save();
 
-
+      //change url tag
       App.router.navigate('', {trigger: true});
     },
-    
+
     deleteInfo: function (e) {
       e.preventDefault();
 
