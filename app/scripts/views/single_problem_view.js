@@ -16,6 +16,7 @@
       this.options = options;
       this.render();
 
+      //empty the form after submission
       $('#problemForm').empty();
 
       // Get our Element On Our Page
@@ -26,8 +27,7 @@
 
       this.$el.empty();
 
-    this.$el.html(this.template(this.options.problem.toJSON()));
-
+      this.$el.html(this.template(this.options.problem.toJSON()));
     },
 
     updateInfo: function (e) {
@@ -49,22 +49,18 @@
       // Save Instance
       this.options.problem.save();
 
-      //Todo - Check on promise
+
       App.router.navigate('', {trigger: true});
-
     },
-
+    
     deleteInfo: function (e) {
       e.preventDefault();
 
-      // Remove problem
+      // Remove the problem
       this.options.problem.destroy();
 
-      // Go home ET
+      // REturn to Home Page
       App.router.navigate('', {trigger: true});
-
     }
-
   });
-
 }());

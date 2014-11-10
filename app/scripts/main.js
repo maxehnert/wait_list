@@ -7,8 +7,5 @@
   App.problems.fetch().done( function () {
 
     App.router = new App.Routers.AppRouter();
-
   });
-
-
 }());

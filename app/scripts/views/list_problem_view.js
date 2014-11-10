@@ -51,8 +51,6 @@
           self.$el.append(self.template(p.toJSON()));
         });
       }
-
-
       return this;
     },
 
@@ -75,16 +73,5 @@
       window.History.back();
       console.log('test');
     }
-    // deleteInfo: function (e) {
-    //   e.preventDefault();
-    //
-    //   // Remove problem
-    //   this.destroy();
-      // Go home ET
-    //  App.router.navigate('', {trigger: true});
-
-    //}
-
   });
-
 }());

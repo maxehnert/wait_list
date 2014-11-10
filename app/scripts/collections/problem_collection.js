@@ -8,5 +8,4 @@
 
     url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
   });
-
 }());

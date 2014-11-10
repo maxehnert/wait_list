@@ -5,7 +5,6 @@
 
 // Custom Styles
 
-
 body {
   background: HSLA(164, 29%, 87%, 1);
   font-family: 'Vollkorn', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -27,6 +26,7 @@ button{
   border-radius: 6px;
   padding: 60px;
   position: relative;
+
   h1 {
     text-align: center;
     font-size: 60px;
@@ -34,14 +34,17 @@ button{
     letter-spacing: -1px;
     font: 'Vollkorn';
     font-weight: 700;
+
     a {
       text-decoration: none;
       color: black;
     }
   }
+
   form {
     margin: 15px 0;
   }
+
   .sorts{
     text-align: center;
 
@@ -55,16 +58,12 @@ button{
   background-color: hsla(349,100%,43%,1);
 }
 
- //#coffeeList {
-//  @include clearfix;
-//  padding: 25px 0;
- //}
-
 .addBtn {
+
   button{
-  //  background-image: radial-gradient(HSLA(170, 71%, 61%, 1) 30%, HSLA(164, 29%, 87%, 1));
     background-color: HSLA(170, 71%, 61%, 1);
     width: 100%;
+
     &:hover{
       background-color:HSLA(172, 100%, 41%, 1);
     }
@@ -80,13 +79,11 @@ button{
   $card-image-background: #DBD199;
   $card-image-hover-background: HSLA(164, 29%, 87%, 1);
   $card-stats-color: HSLA(164, 29%, 87%, 1);
-
   @include transition (all 0.2s ease-in-out);
   background-color: HSLA(164, 29%, 87%, 1);
   border-radius: $base-border-radius;
   border: $card-border;
   margin-bottom: $base-spacing;
-  //cursor: pointer;
   box-shadow: 0 2px 4px darken($base-background-color, 10);
   position: relative;
 
@@ -126,6 +123,7 @@ button{
     #update_name{
       outline: none;
     }
+
     textarea{
       outline: none;
     }
@@ -138,6 +136,7 @@ button{
     background-color: $card-header-background;
     border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
+
     p {
       margin: 0;
     }
@@ -155,13 +154,15 @@ button{
         background-color: HSLA(172, 100%, 41%, 1);
       }
     }
+
     #delete{
-      float:right;
+      float: right;
       background-color: HSLA(355, 60%, 50%, 1);
 
       &:hover{
         background-color: HSLA(348, 100%, 37%, 1);
       }
+
       &[title]:hover:after{
         content: attr(title);
         font-size: 1em;
@@ -199,53 +200,6 @@ button{
   }
 }
 
-/* .button-group {
-  padding: 15px;
-  \$button-group-background: \$base-background-color;
-  \$button-group-color: lighten(\$base-font-color, 30);
-  \$button-group-border: 1px solid silver;
-  \$button-group-inner-border: 1px solid lighten(silver, 18);
-  \$button-group-background-checked: \$base-accent-color;
-  \$button-group-color-checked: white;
-  \$button-group-border-checked: darken(\$button-group-background-checked, 15);
-
-  input {
-    display: none;
-  }
-
-  label {
-    margin-bottom: 0;
-    float: left;
-    margin-right: 5px;
-
-    .button-group-item {
-      background: \$button-group-background;
-      border-radius: \$base-border-radius;
-      border: \$button-group-border;
-      color: \$button-group-color;
-      cursor: pointer;
-      display: inline-block;
-      font-size: \$base-font-size;
-      font-weight: normal;
-      line-height: 1;
-      padding: .75em 1em;
-      width: 100%;
-
-      &:hover {
-        background-color: darken(\$button-group-background, 3);
-      }
-    }
-
-    input:checked + .button-group-item {
-      background: \$button-group-background-checked;
-      border: 1px solid \$button-group-border-checked;
-      box-shadow: inset 0 1px 2px darken(\$button-group-background-checked, 10);
-      color: \$button-group-color-checked;
-    }
-  }
-} */
-
-
 //accordian template
 .accordion {
   $accordion-menu-border-color: $base-border-color;
@@ -257,7 +211,6 @@ button{
   $accordion-menu-sub-inset: darken($accordion-menu-sub-background, 6);
   $accordion-menu-sub-hover: lighten($accordion-menu-sub-background, 2);
   $accordion-menu-list-padding: $base-spacing/2 $gutter;
-
   background-color: $accordion-menu-background;
   border: $accordion-menu-border;
   margin-bottom: $base-spacing;
@@ -266,6 +219,7 @@ button{
   li {
     border-bottom: $accordion-menu-border;
     border-radius: 10px;
+
     > a {
       color: HSLA(170, 71%, 61%, 1);
       padding: $accordion-menu-list-padding;
@@ -289,7 +243,7 @@ button{
     display: none;
 
     li {
-      background-color:HSLA(0, 0%, 77%, 1);
+      background-color: HSLA(0, 0%, 77%, 1);
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
 

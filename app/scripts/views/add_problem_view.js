@@ -23,6 +23,7 @@
         $('#problem_name').val() === '' || $('#problem_problem').val() === ''){
         return false;
       }
+      
       var p = new App.Models.Problem({
         name: $('#problem_name').val(),
         topic: $('#problem_topic').val(),
@@ -30,8 +31,6 @@
         counter: $('.accordian').length,
         time: moment().fromNow(),
         created: moment().format('MMMM Do YYYY, h:mm:ss a')
-
-
       });
 
       App.problems.add(p).save(null, {
@@ -39,10 +38,6 @@
           App.router.navigate('', { trigger: true });
         }
       });
-
     },
-
-
   });
-
 }());

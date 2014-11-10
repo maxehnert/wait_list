@@ -27,9 +27,6 @@
     addProblem: function () {
 
       new App.Views.AddProblem();
-
     }
-
   });
-
 }());

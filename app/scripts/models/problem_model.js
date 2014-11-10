@@ -16,9 +16,6 @@
 
     initialize: function () {
       var t = this.get('name');
-      //console.log(t + " has been added");
     }
-
   });
-
 }());
