@@ -14,17 +14,14 @@
     <script src="scripts/vendor/modernizr.js"></script>
   </head>
   <body>
-
+    <!-- Main HTML -->
     <div class="hero-unit">
       <h1><a href="#/">Wait List</a></h1>
       <a href="#/add" class="addBtn"><button>Add</button></a>
-
       <div class="sorts">
-        <!-- <a href="#/">Rating</a> &bull; -->
         <a href="#/sort/name">Name</a> &bull;
         <a href="#/sort/topic">Topic</a> &bull;
-        <a href="#/sort/counter">Counter</a>
-
+        <a href="#/sort/created">Newest</a>
       </div>
       <div id="problemList"></div>
     </div>
@@ -44,88 +41,52 @@
       <button>Add Problem</button>
 <!--       <a href="#/"><button class="backbtn">Go Back</button></a>-->
     </form>
-
 </script>
-
-  <!--   <script type="text/template" id="listTemp">
-    <li class="card" id="<%= _id %>">
-      <a href="#/edit/<%= _id %>">
-        <div class="card-header"> <%= counter %> Name: <%= name %> Topic: <%= topic %>
-        </div>
-    <% if(problem !== '') { %>
-        <div class="card-copy"><p>Problem: <%= problem %></p></div>
-    <% } %>
-    <% if(rating !== '') { %>
-        <div class="card-stats"><%= rating %> Star Rating</div>
-    <% } %>
-      </a>
-    </li>
-  </script> -->
 
 <!--accordian template -->
 <script type="text/template" id="listTemp">
-<ul class="accordion">
-  <li id="<%= _id %>">
-    <a href="#/edit/<%= _id %>" class="js-accordion-trigger"> Name: <%= name %>  <span>Topic: <%= topic %></span><p>Created: <%= time %></p>
-  <!--   <button id="delete">Delete</button> -->
-    </a>
-    <ul class="submenu">
-      <li>
-        <a href="#/edit/<%= _id %>">Problem: <%= problem %></a>
-      </li>
-    </ul>
-  </li>
-</ul>
+  <ul class="accordion">
+    <li id="<%= _id %>">
+      <a href="#/edit/<%= _id %>" class="js-accordion-trigger">
+       Name: <%= name %>
+       <span>Topic: <%= topic %></span>
+       <p>Created: <%= time %></p>
+       <!--<button id="delete">Delete</button> -->
+      </a>
+      <ul class="submenu">
+        <li>
+          <a href="#/edit/<%= _id %>">Problem: <%= problem %></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </script>
 <!-- end accordian template -->
 
 <!-- Update Information Template-->
-    <script type="text/template" id="informationTemp">
-      <li class="card" id="<%= _id %>">
-        <form id="updateInfo">
-            <div class="card-header">
-              <input type="text" value="<%= name %>" id="update_name" placeholder="Enter Your Name" />
-             <span>Topic</span>
-             <select name="select" id="update_topic">
-              <option value="Code">Code</option>
-              <option value="Code">GitHub</option>
-              <option value="Personal">Personal</option>
-              <option value="Other">Other</option>
-             </select>
-            <textarea id="update_problem" placeholder="Enter Your Problem"><%= problem %></textarea>
-          </div>
-        <!--   <div class="button-group">
-          <label>
-            <input type="radio" name="rating" value="1" <% if (rating == "1") { %>checked<% } %>>
-            <span class="button-group-item">1</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="2" <% if (rating == "2") { %>checked<% } %>>
-            <span class="button-group-item">2</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="3" <% if (rating == "3") { %>checked<% } %>>
-            <span class="button-group-item">3</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="4" <% if (rating == "4") { %>checked<% } %>>
-            <span class="button-group-item">4</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="5" <% if (rating == "5") { %>checked<% } %>>
-            <span class="button-group-item">5</span>
-          </label>
-        </div> -->
-            <div class="card-stats">
-              <button>Update Your Problem</button>
-<!--   <a href="#/"><button class="backbtn">Go Back</button></a>-->
-              <button id="delete" title="Are you sure?">Delete</button>
-            </div>
-        </form>
-      </li>
-    </script>
-
-
+<script type="text/template" id="informationTemp">
+  <li class="card" id="<%= _id %>">
+    <form id="updateInfo">
+        <div class="card-header">
+          <input type="text" value="<%= name %>" id="update_name" placeholder="Enter Your Name" />
+          <span>Topic</span>
+          <select name="select" id="update_topic">
+            <option value="Code">Code</option>
+            <option value="Code">GitHub</option>
+            <option value="Personal">Personal</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea id="update_problem" placeholder="Enter Your Problem"><%= problem %>
+          </textarea>
+        </div>
+        <div class="card-stats">
+          <button>Update Your Problem</button>
+          <!-- <a href="#/"><button class="backbtn">Go Back</button></a>-->
+          <button id="delete" title="Are you sure?">Delete</button>
+        </div>
+    </form>
+  </li>
+</script>
 
     <script src="scripts/vendor.js"></script>
 

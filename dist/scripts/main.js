@@ -10,29 +10,29 @@
       problem: '',
       counter: '',
       time: '',
-      rating: ''
+      rating: '',
+      created: ''
     },
 
     initialize: function () {
       var t = this.get('name');
-      //console.log(t + " has been added");
     }
-
   });
-
 }());
 
 (function () {
 
   App.Collections.Problems = Backbone.Collection.extend({
     model: App.Models.Problem,
+
+    //default comparator when the page loads
     comparator: function (model) {
-      return -parseInt(model.get('counter'));
+      return model.get('created');
     },
-    
+
+    //server URL
     url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
   });
-
 }());
 
 (function () {
@@ -49,25 +49,26 @@
     },
 
     render: function () {
-      this.$el.html($('#addTemp').html());
+      this.$el.html($('#addTemp').fadeIn('fast').html());
 
     },
 
     addProblem: function (e) {
       e.preventDefault();
 
+      //cannot submit new problem without filling out the form complete
       if(
         $('#problem_name').val() === '' || $('#problem_problem').val() === ''){
         return false;
       }
+
       var p = new App.Models.Problem({
         name: $('#problem_name').val(),
         topic: $('#problem_topic').val(),
         problem: $('#problem_problem').val(),
         counter: $('.accordian').length,
-        time: moment().fromNow()
-
-
+        time: moment().fromNow(),
+        created: moment().format('MMMM Do YYYY, h:mm:ss a')
       });
 
       App.problems.add(p).save(null, {
@@ -75,12 +76,8 @@
           App.router.navigate('', { trigger: true });
         }
       });
-
     },
-
-
   });
-
 }());
 
 (function () {
@@ -136,8 +133,6 @@
           self.$el.append(self.template(p.toJSON()));
         });
       }
-
-
       return this;
     },
 
@@ -160,18 +155,7 @@
       window.History.back();
       console.log('test');
     }
-    // deleteInfo: function (e) {
-    //   e.preventDefault();
-    //
-    //   // Remove problem
-    //   this.destroy();
-      // Go home ET
-    //  App.router.navigate('', {trigger: true});
-
-    //}
-
   });
-
 }());
 
 (function () {
@@ -183,16 +167,17 @@
 
     events: {
       'submit #updateInfo' : 'updateInfo',
-      'click #delete' : 'deleteInfo',
-      'mouseover #delete' : 'AreYouSure'
+      'click #delete' : 'deleteInfo'
     },
 
+    //create a template from html script
     template: _.template($('#informationTemp').html()),
 
     initialize: function (options) {
       this.options = options;
       this.render();
 
+      //empty the form after submission
       $('#problemForm').empty();
 
       // Get our Element On Our Page
@@ -203,13 +188,13 @@
 
       this.$el.empty();
 
-    this.$el.html(this.template(this.options.problem.toJSON()));
-
+      this.$el.html(this.template(this.options.problem.toJSON()));
     },
 
     updateInfo: function (e) {
       e.preventDefault();
 
+      //cannot update form unless complete
       if(
         $('#update_name').val() === '' || $('#update_problem').val() === ''){
         return false;
@@ -226,28 +211,20 @@
       // Save Instance
       this.options.problem.save();
 
-      //Todo - Check on promise
+      //change url tag
       App.router.navigate('', {trigger: true});
-
     },
 
     deleteInfo: function (e) {
       e.preventDefault();
 
-      // Remove problem
+      // Remove the problem
       this.options.problem.destroy();
 
-      // Go home ET
+      // REturn to Home Page
       App.router.navigate('', {trigger: true});
-
-    },
-
-    AreYouSure: function(){
-      $('#delete').tooltip();
     }
-
   });
-
 }());
 
 (function () {
@@ -255,7 +232,6 @@
   App.Routers.AppRouter = Backbone.Router.extend({
 
     initialize: function () {
-      // Light the Fire
       Backbone.history.start();
     },
 
@@ -271,19 +247,14 @@
     },
 
     editProblem: function (problemID) {
-
       var p = App.problems.get(problemID);
       new App.Views.SingleProblem({ problem: p });
     },
 
     addProblem: function () {
-
       new App.Views.AddProblem();
-
     }
-
   });
-
 }());
 
 (function () {
@@ -295,8 +266,5 @@
   App.problems.fetch().done( function () {
 
     App.router = new App.Routers.AppRouter();
-
   });
-
-
 }());
