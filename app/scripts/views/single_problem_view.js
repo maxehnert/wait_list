@@ -1,6 +1,6 @@
 (function () {
 
-  App.Views.SingleProblem = Backbone.View.extend({
+  App.Views.SingleProblem = Parse.View.extend({
 
     tagName: 'ul',
     className: 'problemSingle',

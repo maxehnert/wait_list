@@ -1,6 +1,6 @@
 (function () {
 
-  App.Views.AddProblem = Backbone.View.extend({
+  App.Views.AddProblem = Parse.View.extend({
 
     events: {
       'submit #addProblem' : 'addProblem'
@@ -34,9 +34,16 @@
         created: moment().format('MMMM Do YYYY, h:mm:ss a')
       });
 
-      App.problems.add(p).save(null, {
-        success: function () {
-          App.router.navigate('', { trigger: true });
+      // App.problems.add(p).save(null, {
+      //   success: function () {
+      //     App.router.navigate('', { trigger: true });
+      //   }
+      // });
+
+      p.save(null, {
+        success: function(){
+          App.problems.add(p);
+          App.router.navigate('', {trigger: true});
         }
       });
     },

@@ -1,8 +1,10 @@
 (function () {
 
-  App.Models.Problem = Backbone.Model.extend({
+  App.Models.Problem = Parse.Object.extend({
 
-    idAttribute: '_id',
+    className: 'Problem',
+
+    idAttribute: 'objectId',
 
     defaults: {
       name: '',
@@ -22,22 +24,22 @@
 
 (function () {
 
-  App.Collections.Problems = Backbone.Collection.extend({
+  App.Collections.Problems = Parse.Collection.extend({
     model: App.Models.Problem,
 
     //default comparator when the page loads
     comparator: function (model) {
       return model.get('created');
-    },
+    }
 
     //server URL
-    url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
+    //url: 'https://tiy-atl-fe-server.herokuapp.com/collections/waitlist-max1'
   });
 }());
 
 (function () {
 
-  App.Views.AddProblem = Backbone.View.extend({
+  App.Views.AddProblem = Parse.View.extend({
 
     events: {
       'submit #addProblem' : 'addProblem'
@@ -71,9 +73,16 @@
         created: moment().format('MMMM Do YYYY, h:mm:ss a')
       });
 
-      App.problems.add(p).save(null, {
-        success: function () {
-          App.router.navigate('', { trigger: true });
+      // App.problems.add(p).save(null, {
+      //   success: function () {
+      //     App.router.navigate('', { trigger: true });
+      //   }
+      // });
+
+      p.save(null, {
+        success: function(){
+          App.problems.add(p);
+          App.router.navigate('', {trigger: true});
         }
       });
     },
@@ -82,7 +91,7 @@
 
 (function () {
 
-  App.Views.ListProblem = Backbone.View.extend({
+  App.Views.ListProblem = Parse.View.extend({
 
     tagName: 'ul',
     className: 'allProblems',
@@ -160,7 +169,7 @@
 
 (function () {
 
-  App.Views.SingleProblem = Backbone.View.extend({
+  App.Views.SingleProblem = Parse.View.extend({
 
     tagName: 'ul',
     className: 'problemSingle',
@@ -229,10 +238,10 @@
 
 (function () {
 
-  App.Routers.AppRouter = Backbone.Router.extend({
+  App.Routers.AppRouter = Parse.Router.extend({
 
     initialize: function () {
-      Backbone.history.start();
+      Parse.history.start();
     },
 
     routes: {
@@ -257,6 +266,7 @@
   });
 }());
 
+Parse.initialize("ZO4qawRUIEJLDZzd5IgySbKiGd4zBxVlhX0shB29", "ev82Q8YiQdA9Z9V0Z2Wc2lVBR5S3KyJyozQZ3lXq");
 (function () {
 
   // Create Instance of Collection

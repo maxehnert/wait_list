@@ -1,8 +1,10 @@
 (function () {
 
-  App.Models.Problem = Backbone.Model.extend({
+  App.Models.Problem = Parse.Object.extend({
 
-    idAttribute: '_id',
+    className: 'Problem',
+
+    idAttribute: 'objectId',
 
     defaults: {
       name: '',

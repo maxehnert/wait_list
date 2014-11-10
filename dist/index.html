@@ -46,8 +46,8 @@
 <!--accordian template -->
 <script type="text/template" id="listTemp">
   <ul class="accordion">
-    <li id="<%= _id %>">
-      <a href="#/edit/<%= _id %>" class="js-accordion-trigger">
+    <li id="<%= objectId %>">
+      <a href="#/edit/<%= objectId %>" class="js-accordion-trigger">
        Name: <%= name %>
        <span>Topic: <%= topic %></span>
        <p>Created: <%= time %></p>
@@ -55,7 +55,7 @@
       </a>
       <ul class="submenu">
         <li>
-          <a href="#/edit/<%= _id %>">Problem: <%= problem %></a>
+          <a href="#/edit/<%= objectId %>">Problem: <%= problem %></a>
         </li>
       </ul>
     </li>
@@ -65,7 +65,7 @@
 
 <!-- Update Information Template-->
 <script type="text/template" id="informationTemp">
-  <li class="card" id="<%= _id %>">
+  <li class="card" id="<%= objectId %>">
     <form id="updateInfo">
         <div class="card-header">
           <input type="text" value="<%= name %>" id="update_name" placeholder="Enter Your Name" />
@@ -89,6 +89,7 @@
 </script>
 
     <script src="scripts/vendor.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.3.1.min.js"></script>
 
     <script type="text/javascript">
         window.App = {};

@@ -1,6 +1,6 @@
 (function () {
 
-  App.Views.ListProblem = Backbone.View.extend({
+  App.Views.ListProblem = Parse.View.extend({
 
     tagName: 'ul',
     className: 'allProblems',
